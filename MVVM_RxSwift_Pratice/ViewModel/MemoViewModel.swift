@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class ViewModel {
+class MemoViewModel {
     
     private var memoList = [
         Memo(title: "제목1", content: "내용1"),
@@ -19,7 +19,6 @@ class ViewModel {
     private lazy var model = BehaviorSubject<[Memo]>(value: memoList)
     
     var disposeBag: DisposeBag = DisposeBag()
-    
     
     @discardableResult
     func createMemo(title: String, content: String) -> Observable<[Memo]> {

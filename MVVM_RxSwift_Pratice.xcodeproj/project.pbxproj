@@ -164,9 +164,9 @@
 		93A66927295DB5B900FA2FEE /* MVVM_RxSwift_Pratice */ = {
 			isa = PBXGroup;
 			children = (
+				938183B7295EBD2900538CD9 /* Model */,
 				938183B9295EBD3C00538CD9 /* View */,
 				938183B8295EBD3000538CD9 /* ViewModel */,
-				938183B7295EBD2900538CD9 /* Model */,
 				93A66931295DB5B900FA2FEE /* Assets.xcassets */,
 				93A66928295DB5B900FA2FEE /* AppDelegate.swift */,
 				93A6692A295DB5B900FA2FEE /* SceneDelegate.swift */,

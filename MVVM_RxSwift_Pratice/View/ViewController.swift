@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var memoCollectionView: UICollectionView!
     
+    var viewModel = MemoViewModel()
+    
     var memo = Observable.just([
         Memo(title: "가", content: "aaa"),
         Memo(title: "나", content: "bbb"),
@@ -35,7 +37,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         memoCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-
         memo
             .bind(to: memoCollectionView.rx
                 .items(cellIdentifier: "MemoCell", cellType: MemoCollectionViewCell.self)) { index, memo, cell in
@@ -66,20 +67,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
         }
         .disposed(by: disposeBag)
-        
-        
-        
-//        Observable.of("1","2","3")
-//            .subscribe({ event in print(event)})
-//            .disposed(by: DisposeBag())
-//        
-//        Observable.of("4","5","6")
-//            .subscribe({ event in print(event)})
-//            .disposed(by: DisposeBag())
-//        
-//        Observable.of("7","8","9")
-//            .subscribe({ event in print(event)})
-//            .disposed(by: DisposeBag())
         
         let subject = PublishSubject<String>()
         
