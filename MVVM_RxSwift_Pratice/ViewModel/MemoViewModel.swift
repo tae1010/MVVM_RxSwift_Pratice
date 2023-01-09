@@ -8,7 +8,22 @@
 import Foundation
 import RxSwift
 
-class MemoViewModel {
+
+protocol MemoViewModelProtocol {
+    @discardableResult
+    func createMemo(title: String, content: String) -> Observable<[Memo]>
+    
+    @discardableResult
+    func editMemo(title: String, content: String) -> Observable<Memo>
+    
+    @discardableResult
+    func showMemo() -> Observable<[Memo]>
+    
+    @discardableResult
+    func deleteMemo(title: String, content: String) -> Observable<[Memo]>
+}
+
+class MemoViewModel: MemoViewModelProtocol {
     
     private var memoList = [
         Memo(title: "제목1", content: "내용1"),
@@ -20,7 +35,7 @@ class MemoViewModel {
     
     var disposeBag: DisposeBag = DisposeBag()
     
-    @discardableResult
+    
     func createMemo(title: String, content: String) -> Observable<[Memo]> {
         
         let memo = Memo(title: title, content: content)

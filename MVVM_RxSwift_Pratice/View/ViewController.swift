@@ -16,14 +16,24 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var memoCollectionView: UICollectionView!
     
-    var viewModel = MemoViewModel()
-    
+    var viewModel: MemoViewModel
+
     var memo = Observable.just([
         Memo(title: "가", content: "aaa"),
         Memo(title: "나", content: "bbb"),
         Memo(title: "다", content: "ccc"),
         Memo(title: "라", content: "ddd"),
     ])
+    
+    init(viewModel: MemoViewModel = MemoViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        viewModel = MemoViewModel()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         
@@ -48,7 +58,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         Observable.zip(memoCollectionView.rx.modelSelected(Memo.self),
                        memoCollectionView.rx.itemSelected)
         .bind { [weak self] (memo, indexPath) in
-            
             
             // memo는 선택된 MemoModel, indexPath는 선택된 cell index
             let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
