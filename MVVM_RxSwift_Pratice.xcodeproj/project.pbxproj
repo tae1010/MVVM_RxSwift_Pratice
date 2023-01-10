@@ -8,19 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		9329996C295F0123000410F1 /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329996B295F0123000410F1 /* MemoViewModel.swift */; };
+		937C9103296D79FB0066A1F0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C9102296D79FB0066A1F0 /* MainViewModel.swift */; };
+		937C9106296D96590066A1F0 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C9105296D96590066A1F0 /* RandomColor.swift */; };
 		938183B2295DC17800538CD9 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938183B1295DC17800538CD9 /* MemoCell.xib */; };
 		938183B6295DC21F00538CD9 /* MemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */; };
 		938183BB295EBE5E00538CD9 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938183BA295EBE5E00538CD9 /* Memo.swift */; };
 		938183C0295EDB2B00538CD9 /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938183BF295EDB2B00538CD9 /* MemoDetailViewController.swift */; };
 		93A66929295DB5B900FA2FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66928295DB5B900FA2FEE /* AppDelegate.swift */; };
 		93A6692B295DB5B900FA2FEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6692A295DB5B900FA2FEE /* SceneDelegate.swift */; };
-		93A6692D295DB5B900FA2FEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6692C295DB5B900FA2FEE /* ViewController.swift */; };
+		93A6692D295DB5B900FA2FEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6692C295DB5B900FA2FEE /* MainViewController.swift */; };
 		93A66930295DB5B900FA2FEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A6692E295DB5B900FA2FEE /* Main.storyboard */; };
 		93A66932295DB5B900FA2FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A66931295DB5B900FA2FEE /* Assets.xcassets */; };
 		93A66935295DB5B900FA2FEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A66933295DB5B900FA2FEE /* LaunchScreen.storyboard */; };
 		93A66940295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6693F295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeTests.swift */; };
 		93A6694A295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66949295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITests.swift */; };
 		93A6694C295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6694B295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITestsLaunchTests.swift */; };
+		93EF80F8296C280000AE6601 /* memo.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EF80F7296C280000AE6601 /* memo.json */; };
 		E1870B2E1878791CCA8822F4 /* Pods_MVVM_RxSwift_PraticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2EA61CB1EA61DF5E9EBF8A /* Pods_MVVM_RxSwift_PraticeTests.framework */; };
 		F32163D0C636160137F10A28 /* Pods_MVVM_RxSwift_Pratice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E2E706CCE4EA6FDAEDB7CE /* Pods_MVVM_RxSwift_Pratice.framework */; };
 		F365E3DCB87655EEE86D96A6 /* Pods_MVVM_RxSwift_Pratice_MVVM_RxSwift_PraticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2207E212A5DDC27FFA54B7BF /* Pods_MVVM_RxSwift_Pratice_MVVM_RxSwift_PraticeUITests.framework */; };
@@ -52,6 +55,8 @@
 		84E2E706CCE4EA6FDAEDB7CE /* Pods_MVVM_RxSwift_Pratice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RxSwift_Pratice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5ECF29A5DCC8DFEE20EC42 /* Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests/Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9329996B295F0123000410F1 /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
+		937C9102296D79FB0066A1F0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		937C9105296D96590066A1F0 /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		938183B1295DC17800538CD9 /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCollectionViewCell.swift; sourceTree = "<group>"; };
 		938183BA295EBE5E00538CD9 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
@@ -59,7 +64,7 @@
 		93A66925295DB5B900FA2FEE /* MVVM_RxSwift_Pratice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RxSwift_Pratice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A66928295DB5B900FA2FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A6692A295DB5B900FA2FEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93A6692C295DB5B900FA2FEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93A6692C295DB5B900FA2FEE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		93A6692F295DB5B900FA2FEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93A66931295DB5B900FA2FEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A66934295DB5B900FA2FEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 		93A66945295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVM_RxSwift_PraticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A66949295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_RxSwift_PraticeUITests.swift; sourceTree = "<group>"; };
 		93A6694B295DB5BA00FA2FEE /* MVVM_RxSwift_PraticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_RxSwift_PraticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		93EF80F7296C280000AE6601 /* memo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = memo.json; sourceTree = "<group>"; };
 		B6626D474EC4AE17C0CD07FE /* Pods-MVVM_RxSwift_Pratice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RxSwift_Pratice.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_RxSwift_Pratice/Pods-MVVM_RxSwift_Pratice.debug.xcconfig"; sourceTree = "<group>"; };
 		FAF3F3E5D7EC61DDB76EE207 /* Pods-MVVM_RxSwift_PraticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RxSwift_PraticeTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_RxSwift_PraticeTests/Pods-MVVM_RxSwift_PraticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +117,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		937C9104296D964B0066A1F0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				937C9105296D96590066A1F0 /* RandomColor.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		938183B7295EBD2900538CD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,7 @@
 		938183B8295EBD3000538CD9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				937C9102296D79FB0066A1F0 /* MainViewModel.swift */,
 				9329996B295F0123000410F1 /* MemoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -130,7 +145,7 @@
 		938183B9295EBD3C00538CD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				93A6692C295DB5B900FA2FEE /* ViewController.swift */,
+				93A6692C295DB5B900FA2FEE /* MainViewController.swift */,
 				938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */,
 				938183BF295EDB2B00538CD9 /* MemoDetailViewController.swift */,
 				93A6692E295DB5B900FA2FEE /* Main.storyboard */,
@@ -164,6 +179,7 @@
 		93A66927295DB5B900FA2FEE /* MVVM_RxSwift_Pratice */ = {
 			isa = PBXGroup;
 			children = (
+				937C9104296D964B0066A1F0 /* Util */,
 				938183B7295EBD2900538CD9 /* Model */,
 				938183B9295EBD3C00538CD9 /* View */,
 				938183B8295EBD3000538CD9 /* ViewModel */,
@@ -172,6 +188,7 @@
 				93A6692A295DB5B900FA2FEE /* SceneDelegate.swift */,
 				93A66933295DB5B900FA2FEE /* LaunchScreen.storyboard */,
 				93A66936295DB5B900FA2FEE /* Info.plist */,
+				93EF80F7296C280000AE6601 /* memo.json */,
 			);
 			path = MVVM_RxSwift_Pratice;
 			sourceTree = "<group>";
@@ -315,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93EF80F8296C280000AE6601 /* memo.json in Resources */,
 				93A66935295DB5B900FA2FEE /* LaunchScreen.storyboard in Resources */,
 				93A66932295DB5B900FA2FEE /* Assets.xcassets in Resources */,
 				93A66930295DB5B900FA2FEE /* Main.storyboard in Resources */,
@@ -448,11 +466,13 @@
 			files = (
 				938183C0295EDB2B00538CD9 /* MemoDetailViewController.swift in Sources */,
 				9329996C295F0123000410F1 /* MemoViewModel.swift in Sources */,
+				937C9106296D96590066A1F0 /* RandomColor.swift in Sources */,
 				938183B6295DC21F00538CD9 /* MemoCollectionViewCell.swift in Sources */,
-				93A6692D295DB5B900FA2FEE /* ViewController.swift in Sources */,
+				93A6692D295DB5B900FA2FEE /* MainViewController.swift in Sources */,
 				93A66929295DB5B900FA2FEE /* AppDelegate.swift in Sources */,
 				93A6692B295DB5B900FA2FEE /* SceneDelegate.swift in Sources */,
 				938183BB295EBE5E00538CD9 /* Memo.swift in Sources */,
+				937C9103296D79FB0066A1F0 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

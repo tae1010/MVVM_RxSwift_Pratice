@@ -35,7 +35,6 @@ class MemoViewModel: MemoViewModelProtocol {
     
     var disposeBag: DisposeBag = DisposeBag()
     
-    
     func createMemo(title: String, content: String) -> Observable<[Memo]> {
         
         let memo = Memo(title: title, content: content)
