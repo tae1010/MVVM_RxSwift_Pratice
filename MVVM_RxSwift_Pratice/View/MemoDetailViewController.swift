@@ -18,32 +18,38 @@ class MemoDetailViewController: UIViewController {
     @IBOutlet weak var fixButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     
-    var testTitle: String? = ""
-    var testContent: String? = ""
+    var testTitle: String? = " "
+    var testContent: String? = " "
     var index: Int = 0
     
-    var model: Memo
+    var model: Memo = Memo()
     
     var disposeBag = DisposeBag()
     
     init(model: Memo) {
+        print(model)
         self.model = model
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        test()
+        
+    }
+    
+    func test() {
         if let title = self.testTitle {
-            titleTextField.text = title
+            self.titleTextField.text = model.title
+            
         }
         
         if let content  = self.testContent {
-            contentTextView.text = content
+            contentTextView.text = model.content
         }
         
         let usernameValid = titleTextField.rx.text.orEmpty
