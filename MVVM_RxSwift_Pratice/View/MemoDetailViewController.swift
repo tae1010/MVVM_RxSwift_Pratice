@@ -15,7 +15,7 @@ class MemoDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
-    @IBOutlet weak var fixButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     
     var testTitle: String? = " "
@@ -69,6 +69,8 @@ class MemoDetailViewController: UIViewController {
         everythingValid
             .bind(to: createButton.rx.isEnabled)
             .disposed(by: disposeBag)
+        
+        
     }
     
     

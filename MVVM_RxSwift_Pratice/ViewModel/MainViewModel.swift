@@ -19,12 +19,5 @@ class MainViewModel {
     ]
     
     lazy var memoList = BehaviorSubject<[Memo]>(value: menuItem) // 빈 배열을 갖고 잇는 observable 생성
-    
-    init() {
-        
-        
-        
-        print(memoList, "이건?")
-    }
 
 }

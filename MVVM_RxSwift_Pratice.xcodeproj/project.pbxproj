@@ -146,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				93A6692C295DB5B900FA2FEE /* MainViewController.swift */,
-				938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */,
 				938183BF295EDB2B00538CD9 /* MemoDetailViewController.swift */,
+				938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */,
 				93A6692E295DB5B900FA2FEE /* Main.storyboard */,
 				938183B1295DC17800538CD9 /* MemoCell.xib */,
 			);
