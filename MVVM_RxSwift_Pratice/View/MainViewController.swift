@@ -34,13 +34,13 @@ class MainViewController: UIViewController {
             
         
         // 컬렉션뷰에 memoList를 바인딩
-        mainViewModel.memoList
+        mainViewModel.model
             .bind(to: memoCollectionView.rx
                 .items(cellIdentifier: "MemoCell", cellType: MemoCollectionViewCell.self)) { index, memo, cell in
                     
                     cell.backgroundColor = RandomColor().randomColor()
                     cell.titleLabel?.text = memo.title
-                    
+                    cell.layer.cornerRadius = 10
                 }
                 .disposed(by: disposeBag)
         
@@ -74,8 +74,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.memoCollectionView.frame.width / 2
-        let height = width / 2
+        let width = self.memoCollectionView.frame.width / 2 - 20
+        let height = width / 2 - 20
         print(width, height)
         
         return CGSize(width: width, height: height)

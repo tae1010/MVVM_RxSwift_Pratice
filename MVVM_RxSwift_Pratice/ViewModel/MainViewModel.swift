@@ -9,15 +9,78 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainViewModel {
+protocol MemoViewModelProtocol {
+    @discardableResult
+    func createMemo(title: String, content: String) -> Observable<[Memo]>
     
-    var menuItem = [
-        Memo(title: "가", content: "내용1"),
-        Memo(title: "나", content: "내용2"),
-        Memo(title: "다", content: "내용3"),
-        Memo(title: "라", content: "내용4")
+    @discardableResult
+    func editMemo(title: String, content: String) -> Observable<Memo>
+    
+//    @discardableResult
+//    func showMemo() -> Observable<[Memo]>
+    
+    @discardableResult
+    func deleteMemo(title: String, content: String) -> Observable<[Memo]>
+}
+
+class MainViewModel: MemoViewModelProtocol {
+
+    
+    
+    
+    var memoList = [
+        Memo(title: "제목1", content: "내용1"),
+        Memo(title: "제목2", content: "내용2")
     ]
     
-    lazy var memoList = BehaviorSubject<[Memo]>(value: menuItem) // 빈 배열을 갖고 잇는 observable 생성
+    // 초기값 memoList를 갖고 있는 subject인 behaviorSubject 생성
+    lazy var model = BehaviorSubject<[Memo]>(value: memoList)
+    
+    var disposeBag: DisposeBag = DisposeBag()
+    
+    // 메모 생성
+    func createMemo(title: String, content: String) -> Observable<[Memo]> {
+        
+        let memo = Memo(title: title, content: content)
+        memoList.insert(memo, at: 0)
+        
+        model.onNext(memoList)
+        return Observable.just(memoList)
+    }
+    
+    // 메모 수정
+    @discardableResult
+    func editMemo(title: String, content: String) -> Observable<Memo> {
+        
+        let updateMemo = Memo(title: title, content: content)
+        
+        if let index = memoList.firstIndex(where: { $0 == updateMemo }) {
+            memoList.remove(at: index)
+            memoList.insert(updateMemo, at: index)
+        }
+        
+        model.onNext(memoList)
+        
+        return Observable.just(updateMemo)
+    }
+    
+//    @discardableResult
+//    func showMemo() -> Observable<[Memo]> {
+//        return model
+//    }
+    
+    // 메모 삭제
+    @discardableResult
+    func deleteMemo(title: String, content: String) -> Observable<[Memo]> {
+        let deleteMemo = Memo(title: title, content: content)
+        
+        if let index = memoList.firstIndex(where: { $0 == deleteMemo }) {
+            memoList.remove(at: index)
+        }
+        
+        model.onNext(memoList)
+        
+        return Observable.just(memoList)
+    }
 
 }
