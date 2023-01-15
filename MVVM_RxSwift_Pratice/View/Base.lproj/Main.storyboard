@@ -134,7 +134,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="FixButton:" destination="wIJ-kZ-lhN" eventType="touchUpInside" id="u60-7A-bu0"/>
+                                            <action selector="tabDeleteButton:" destination="9JS-ym-AGC" eventType="touchUpInside" id="Zpe-Mx-xQg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-Qx-Kmm">
@@ -143,6 +143,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="적용하기">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tabCreateButton:" destination="9JS-ym-AGC" eventType="touchUpInside" id="Ew9-3a-r0X"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -177,7 +180,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXf-gu-7FU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="wIJ-kZ-lhN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="879" y="4"/>
         </scene>

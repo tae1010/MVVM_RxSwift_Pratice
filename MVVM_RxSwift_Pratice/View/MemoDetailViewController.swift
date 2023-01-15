@@ -22,34 +22,38 @@ class MemoDetailViewController: UIViewController {
     var testContent: String? = " "
     var index: Int = 0
     
-    var model: Memo = Memo()
+    var memos: Memo = Memo()
+    var mainViewModel = MainViewModel()
     
     var disposeBag = DisposeBag()
     
-    init(model: Memo) {
-        print(model)
-        self.model = model
+    init(memos: Memo) {
+        
+        self.memos = memos
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        test()
-        
+        configureView()
     }
     
-    func test() {
-        if let title = self.testTitle {
-            self.titleTextField.text = model.title
+    // textfield, textView 설정
+    func configureView() {
+        
+        
+        if let _ = self.testTitle {
+            self.titleTextField.text = memos.title
             
         }
         
-        if let content  = self.testContent {
-            contentTextView.text = model.content
+        if let _ = self.testContent {
+            contentTextView.text = memos.content
         }
         
         let usernameValid = titleTextField.rx.text.orEmpty
@@ -75,9 +79,15 @@ class MemoDetailViewController: UIViewController {
     
     
     
-    @IBAction func tabFixButton(_ sender: UIButton) {
+    @IBAction func tabDeleteButton(_ sender: UIButton) {
         
+        let title = self.titleTextField.text ?? ""
+        let content = self.contentTextView.text ?? ""
+
+        mainViewModel.deleteMemo(title: title, content: content)
         
+        self.dismiss(animated: true)
+
     }
     
     @IBAction func tabCreateButton(_ sender: UIButton) {

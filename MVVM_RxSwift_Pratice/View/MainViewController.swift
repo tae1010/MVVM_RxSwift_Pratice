@@ -24,13 +24,13 @@ class MainViewController: UIViewController {
         memoCollectionView.register(nibName, forCellWithReuseIdentifier: "MemoCell")
             
         
-        // collectionview delegate 등록
+//         collectionview delegate 등록
         memoCollectionView.rx.setDelegate(self)
                     .disposed(by: disposeBag)
+
         
-        
-        // collectionView inset
-        memoCollectionView.rx.contentInset.onNext(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+//         collectionView inset
+        memoCollectionView.rx.contentInset.onNext(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
             
         
         // 컬렉션뷰에 memoList를 바인딩
@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
                     
                     cell.backgroundColor = RandomColor().randomColor()
                     cell.titleLabel?.text = memo.title
-                    cell.layer.cornerRadius = 10
+                    cell.layer.cornerRadius = 20
                 }
                 .disposed(by: disposeBag)
         
@@ -56,6 +56,10 @@ class MainViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(mainViewModel.memoList, "확인")
+    }
+    
     @IBAction func tapNewMemoButton(_ sender: UIButton) {
         self.moveView(model: Memo())
     }
@@ -65,7 +69,8 @@ class MainViewController: UIViewController {
     func moveView(model: Memo) {
 
         guard let memoDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MemoDetailViewController") as? MemoDetailViewController else { return }
-        memoDetailVC.model = model
+        memoDetailVC.memos = model
+        memoDetailVC.modalPresentationStyle = .fullScreen
         present(memoDetailVC, animated: true, completion: nil)
     }
 
@@ -73,11 +78,12 @@ class MainViewController: UIViewController {
 
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.memoCollectionView.frame.width / 2 - 20
-        let height = width / 2 - 20
-        print(width, height)
-        
-        return CGSize(width: width, height: height)
+
+        let cellWidth = (self.memoCollectionView.frame.width / 2) - 50
+        return CGSize(width: cellWidth, height: cellWidth / 2)
+
+
     }
 }
