@@ -33,7 +33,7 @@ class MainViewModel: MemoViewModelProtocol {
     ]
     
     init() {
-        print(memoList,"현재 메모리스트")
+        print(model.values,"현재 메모리스트")
     }
     
     // 초기값 memoList를 갖고 있는 subject인 behaviorSubject 생성
@@ -64,7 +64,7 @@ class MainViewModel: MemoViewModelProtocol {
         
         model.onNext(memoList)
         
-        
+        return Observable.just(updateMemo)
     }
     
 //    @discardableResult
@@ -74,7 +74,7 @@ class MainViewModel: MemoViewModelProtocol {
     
     // 메모 삭제
     @discardableResult
-    func deleteMemo(title: String, content: String) -> Observable<Memo> {
+    func deleteMemo(title: String, content: String) -> Observable<[Memo]> {
         let deleteMemo = Memo(title: title, content: content)
         
         if let index = memoList.firstIndex(where: { $0 == deleteMemo }) {
@@ -85,9 +85,6 @@ class MainViewModel: MemoViewModelProtocol {
         model.onNext(memoList)
         
         return Observable.just(memoList)
-        
-        
-
     }
 
 }

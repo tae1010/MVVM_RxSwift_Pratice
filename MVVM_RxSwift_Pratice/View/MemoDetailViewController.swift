@@ -84,15 +84,16 @@ class MemoDetailViewController: UIViewController {
         let title = self.titleTextField.text ?? ""
         let content = self.contentTextView.text ?? ""
 
-        mainViewModel.deleteMemo(title: title, content: content)
+        mainViewModel.deleteMemo(title: title, content: content).subscribe(onNext: { memos in
+            print(memos,"?!?")
+        }).disposed(by: disposeBag)
         
         self.dismiss(animated: true)
-
+        
     }
     
     @IBAction func tabCreateButton(_ sender: UIButton) {
         bind()
-        
     }
     
     func bind() {

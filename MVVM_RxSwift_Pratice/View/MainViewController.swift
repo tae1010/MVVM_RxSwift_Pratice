@@ -22,14 +22,14 @@ class MainViewController: UIViewController {
         
         let nibName = UINib(nibName: "MemoCell", bundle: nil)
         memoCollectionView.register(nibName, forCellWithReuseIdentifier: "MemoCell")
-            
+        
         
 //         collectionview delegate 등록
         memoCollectionView.rx.setDelegate(self)
                     .disposed(by: disposeBag)
 
         
-//         collectionView inset
+        // collectionView inset
         memoCollectionView.rx.contentInset.onNext(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
             
         
@@ -53,11 +53,10 @@ class MainViewController: UIViewController {
             self.moveView(model: memo)
         }
         .disposed(by: disposeBag)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(mainViewModel.memoList, "확인")
+        print(mainViewModel.model, "확인")
     }
     
     @IBAction func tapNewMemoButton(_ sender: UIButton) {
