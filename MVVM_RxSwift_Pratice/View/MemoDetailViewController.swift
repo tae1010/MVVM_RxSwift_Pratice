@@ -23,12 +23,11 @@ class MemoDetailViewController: UIViewController {
     var index: Int = 0
     
     var memos: Memo = Memo()
-    var mainViewModel = MainViewModel()
-    
+    var memoDetailViewModel: MemoDetailViewModel
     var disposeBag = DisposeBag()
     
-    init(memos: Memo) {
-        
+    init(memos: Memo, memoDetailViewModel: MemoDetailViewModel) {
+        self.memoDetailViewModel = memoDetailViewModel
         self.memos = memos
         super.init(nibName: nil, bundle: nil)
     }
@@ -84,7 +83,7 @@ class MemoDetailViewController: UIViewController {
         let title = self.titleTextField.text ?? ""
         let content = self.contentTextView.text ?? ""
 
-        mainViewModel.deleteMemo(title: title, content: content).subscribe(onNext: { memos in
+        memoDetailViewModel.deleteMemo(title: title, content: content).subscribe(onNext: { memos in
             print(memos,"?!?")
         }).disposed(by: disposeBag)
         

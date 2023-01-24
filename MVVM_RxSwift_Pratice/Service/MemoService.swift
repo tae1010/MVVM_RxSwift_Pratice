@@ -8,33 +8,19 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Alamofire
 
-protocol MemoViewModelProtocol {
-    @discardableResult
-    func createMemo(title: String, content: String) -> Observable<[Memo]>
-    
-    @discardableResult
-    func editMemo(title: String, content: String) -> Observable<Memo>
-    
-//    @discardableResult
-//    func showMemo() -> Observable<[Memo]>
-    
-    @discardableResult
-    func deleteMemo(title: String, content: String) -> Observable<[Memo]>
-}
+/*
+    여기는 api나 db에서 메모를 관리하는 class
+ */
 
-class MainViewModel: MemoViewModelProtocol {
+class MemoService: MemoServiceProtocol {
 
-    var memoList = [
+    private var memoList = [
         Memo(title: "제목1", content: "내용1"),
         Memo(title: "제목2", content: "내용2"),
         Memo(title: "제목3", content: "내용3"),
-        Memo(title: "제목4", content: "내용4")
     ]
-    
-    init() {
-        print(model.values,"현재 메모리스트")
-    }
     
     // 초기값 memoList를 갖고 있는 subject인 behaviorSubject 생성
     lazy var model = BehaviorSubject<[Memo]>(value: memoList)
@@ -42,6 +28,7 @@ class MainViewModel: MemoViewModelProtocol {
     var disposeBag: DisposeBag = DisposeBag()
     
     // 메모 생성
+    @discardableResult
     func createMemo(title: String, content: String) -> Observable<[Memo]> {
         
         let memo = Memo(title: title, content: content)
@@ -67,10 +54,10 @@ class MainViewModel: MemoViewModelProtocol {
         return Observable.just(updateMemo)
     }
     
-//    @discardableResult
-//    func showMemo() -> Observable<[Memo]> {
-//        return model
-//    }
+    @discardableResult
+    func showMemo() -> Observable<[Memo]> {
+        return model
+    }
     
     // 메모 삭제
     @discardableResult

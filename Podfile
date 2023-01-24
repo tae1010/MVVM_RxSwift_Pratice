@@ -9,6 +9,7 @@ target 'MVVM_RxSwift_Pratice' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Alamofire', '~> 5.2'
 
   target 'MVVM_RxSwift_PraticeTests' do
     inherit! :search_paths

@@ -14,8 +14,18 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var memoCollectionView: UICollectionView!
     
-    var mainViewModel = MainViewModel()
+    var memoListViewModel: MemoListViewModel
     var disposeBag = DisposeBag()
+    
+    
+    init(memoListViewModel: MemoListViewModel) {
+        self.memoListViewModel = memoListViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +33,7 @@ class MainViewController: UIViewController {
         let nibName = UINib(nibName: "MemoCell", bundle: nil)
         memoCollectionView.register(nibName, forCellWithReuseIdentifier: "MemoCell")
         
-        
+                        
 //         collectionview delegate 등록
         memoCollectionView.rx.setDelegate(self)
                     .disposed(by: disposeBag)
@@ -31,7 +41,8 @@ class MainViewController: UIViewController {
         
         // collectionView inset
         memoCollectionView.rx.contentInset.onNext(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
-            
+        
+        
         
         // 컬렉션뷰에 memoList를 바인딩
         mainViewModel.model
@@ -82,7 +93,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
         let cellWidth = (self.memoCollectionView.frame.width / 2) - 50
         return CGSize(width: cellWidth, height: cellWidth / 2)
-
-
     }
 }
