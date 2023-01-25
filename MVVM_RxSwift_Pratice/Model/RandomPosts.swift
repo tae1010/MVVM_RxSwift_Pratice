@@ -9,13 +9,13 @@ import Foundation
 
 struct RandomPosts: Codable {
     
-    var userd: Int
+    var userId: Int
     var id: Int
     var title: String
     var content: String
 
     enum CodingKeys: String,CodingKey {
-        case userd
+        case userId
         case id
         case title
         case content = "body"

@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         
         
         // 컬렉션뷰에 memoList를 바인딩
-        mainViewModel.model
+        memoListViewModel.model
             .bind(to: memoCollectionView.rx
                 .items(cellIdentifier: "MemoCell", cellType: MemoCollectionViewCell.self)) { index, memo, cell in
                     
@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(mainViewModel.model, "확인")
+        print(memoListViewModel.model, "확인")
     }
     
     @IBAction func tapNewMemoButton(_ sender: UIButton) {

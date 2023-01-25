@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
+
 class DownloadRandomString {
     
     let urlString = "https://jsonplaceholder.typicode.com/posts/1"
@@ -22,11 +23,40 @@ class DownloadRandomString {
                    method: .get,
                    parameters: nil,
                    encoding: JSONEncoding.default,
-                   headers: ["Content-Type":"application/json", "Accept":"application/json"])
-        .validate(statusCode: 200..<300)
-        .responseJSON { (json) in
-            //응답처리
-            print(json)
+                   headers: nil,
+                   interceptor: nil,
+                   requestModifier: nil)
+            .responseDecodable(of: [RandomPosts].self) { response in
+            if let error = response.error {
+                print(error)
+                return completion(error, nil)
+            }
+            
+            if let randomPosts = response.value {
+                print("success \(randomPosts)")
+                return completion(nil, randomPosts)
+            }
+  
+        }
+    }
+    
+    @discardableResult
+    func fetchNews() -> Observable<[RandomPosts]> {
+        return Observable.create { (observer) -> Disposable in
+            
+            self.downloadPost(completion: {(error, randomPosts) in
+                
+                if let error = error {
+                    observer.onError(error)
+                }
+                
+                if let randomPosts = randomPosts {
+                    observer.onNext(randomPosts)
+                }
+                
+                observer.onCompleted()
+            })
+            return Disposables.create()
         }
     }
     
