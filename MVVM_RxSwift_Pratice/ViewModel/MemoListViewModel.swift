@@ -12,55 +12,40 @@ import RxCocoa
 
 class MemoListViewModel {
     
-    private let memoService: MemoService
-    let notes = BehaviorRelay<[Memo]>(value: [])
+    private let downloadRandomString: DownloadRandomString
+    
+    var memoList: [Memo] = [] // 메모를 저장할 객체
+    
+    var notes = BehaviorSubject<[Memo]>(value: []) // 메모의 상태를 알기위한 객체
     let disposeBag = DisposeBag()
 
-    init(memoService: MemoService) {
-        self.memoService = memoService
+    init(downloadRandomString: DownloadRandomString) {
+        self.downloadRandomString = DownloadRandomString()
+        
     }
-
-    func fetchNotes() {
-        memoService.fetchNotes()
-            .subscribe(onNext: { [weak self] notes in
-                self?.notes.accept(notes)
-            })
-            .disposed(by: disposeBag)
-    }
-
     
-    func addNote(title: String, content: String) {
-        memoService.addNote(title: title, content: content)
-            .subscribe(onNext: { [weak self] newNote in
-                var currentNotes = self?.notes.value ?? []
-                currentNotes.append(newNote)
-                self?.notes.accept(currentNotes)
-            })
-            .disposed(by: disposeBag)
+    // 메모 생성
+    @discardableResult
+    func createMemo(title: String, content: String) -> Observable<[Memo]> {
+        
+        let memo = Memo(title: title, content: content)
+        memoList.insert(memo, at: 0)
+        
+        notes.onNext(memoList)
+        return Observable.just(memoList)
     }
+    
 
-    func updateNote(memo: Memo, title: String, content: String) {
-        memoService.updateNote(memo: memo, title: title, content: content)
-            .subscribe(onNext: { [weak self] updatedNote in
-                var currentNotes = self?.notes.value ?? []
-                if let index = currentNotes.firstIndex(where: { $0.id == updatedNote.id }) {
-                    currentNotes[index] = updatedNote
-                    self?.notes.accept(currentNotes)
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-
-    func deleteNote(memo: Memo) {
-        memoService.deleteNote(note: note)
-            .subscribe(onNext: { [weak self] _ in
-                var currentNotes = self?.notes.value ?? []
-                if let index = currentNotes.firstIndex(where: { $0.id == note.id }) {
-                    currentNotes.remove(at: index)
-                    self?.notes.accept(currentNotes)
-                }
-            })
-            .disposed(by: disposeBag)
+    // 메모 보여주기
+    func showMemo() {
+        print(#fileID, #function, #line, "showMemo 실행")
+        downloadRandomString.fetchRandomString().subscribe(onNext: { [weak self] memos in
+            self?.notes.onNext(memos)
+        }, onError: { error in
+            print(error)
+        }, onCompleted: {
+            
+        }).disposed(by: disposeBag)
     }
 }
 

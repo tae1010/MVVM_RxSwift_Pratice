@@ -9,10 +9,13 @@ import Foundation
 import Alamofire
 import RxSwift
 
+protocol RandomStringProtocol {
+    func fetchRandomString() -> Observable<[Memo]>
+}
 
-class DownloadRandomString {
+class DownloadRandomString: RandomStringProtocol {
     
-    let urlString = "https://jsonplaceholder.typicode.com/posts/1"
+    let urlString = "https://jsonplaceholder.typicode.com/posts"
     
     func downloadPost(completion: @escaping((Error?, [RandomPosts]?) -> Void)) {
         
@@ -27,6 +30,7 @@ class DownloadRandomString {
                    interceptor: nil,
                    requestModifier: nil)
             .responseDecodable(of: [RandomPosts].self) { response in
+            
             if let error = response.error {
                 print(error)
                 return completion(error, nil)
@@ -41,7 +45,7 @@ class DownloadRandomString {
     }
     
     @discardableResult
-    func fetchNews() -> Observable<[RandomPosts]> {
+    func fetchRandomString() -> Observable<[Memo]> {
         return Observable.create { (observer) -> Disposable in
             
             self.downloadPost(completion: {(error, randomPosts) in
@@ -51,7 +55,9 @@ class DownloadRandomString {
                 }
                 
                 if let randomPosts = randomPosts {
-                    observer.onNext(randomPosts)
+                    let memos = randomPosts.map { $0.toMemo() }
+                    print(memos,"메모")
+                    observer.onNext(memos)
                 }
                 
                 observer.onCompleted()
@@ -59,5 +65,4 @@ class DownloadRandomString {
             return Disposables.create()
         }
     }
-    
 }

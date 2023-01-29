@@ -20,4 +20,8 @@ struct RandomPosts: Codable {
         case title
         case content = "body"
     }
+    
+    func toMemo() -> Memo {
+        return Memo(title: self.title, content: self.content)
+    }
 }

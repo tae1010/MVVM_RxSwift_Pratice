@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		932740C0297FD2DB00A187B2 /* DownloadRandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932740BF297FD2DB00A187B2 /* DownloadRandomString.swift */; };
 		932740C2297FD3C200A187B2 /* RandomPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932740C1297FD3C200A187B2 /* RandomPosts.swift */; };
-		937C9103296D79FB0066A1F0 /* MemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C9102296D79FB0066A1F0 /* MemoService.swift */; };
+		937C9103296D79FB0066A1F0 /* FetchMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C9102296D79FB0066A1F0 /* FetchMemo.swift */; };
 		937C9106296D96590066A1F0 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937C9105296D96590066A1F0 /* RandomColor.swift */; };
 		938183B2295DC17800538CD9 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938183B1295DC17800538CD9 /* MemoCell.xib */; };
 		938183B6295DC21F00538CD9 /* MemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */; };
@@ -60,7 +60,7 @@
 		8C5ECF29A5DCC8DFEE20EC42 /* Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests/Pods-MVVM_RxSwift_Pratice-MVVM_RxSwift_PraticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		932740BF297FD2DB00A187B2 /* DownloadRandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRandomString.swift; sourceTree = "<group>"; };
 		932740C1297FD3C200A187B2 /* RandomPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPosts.swift; sourceTree = "<group>"; };
-		937C9102296D79FB0066A1F0 /* MemoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoService.swift; sourceTree = "<group>"; };
+		937C9102296D79FB0066A1F0 /* FetchMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMemo.swift; sourceTree = "<group>"; };
 		937C9105296D96590066A1F0 /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		938183B1295DC17800538CD9 /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		938183B5295DC21F00538CD9 /* MemoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 		938183B8295EBD3000538CD9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9393917A297A8FFE004CA04D /* MemoServiceProtocol.swift */,
 				9393917E297FB0E5004CA04D /* MemoListViewModel.swift */,
 				93939182297FB185004CA04D /* MemoDetailViewModel.swift */,
 			);
@@ -166,9 +167,8 @@
 		93939186297FB640004CA04D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9393917A297A8FFE004CA04D /* MemoServiceProtocol.swift */,
-				937C9102296D79FB0066A1F0 /* MemoService.swift */,
 				932740BF297FD2DB00A187B2 /* DownloadRandomString.swift */,
+				937C9102296D79FB0066A1F0 /* FetchMemo.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -496,7 +496,7 @@
 				932740C2297FD3C200A187B2 /* RandomPosts.swift in Sources */,
 				932740C0297FD2DB00A187B2 /* DownloadRandomString.swift in Sources */,
 				9393917F297FB0E5004CA04D /* MemoListViewModel.swift in Sources */,
-				937C9103296D79FB0066A1F0 /* MemoService.swift in Sources */,
+				937C9103296D79FB0066A1F0 /* FetchMemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
